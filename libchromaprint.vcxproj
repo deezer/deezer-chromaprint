@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B32F9408-56A8-4D8C-A209-9227EA875DD6}</ProjectGuid>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>libchromaprint</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfAtl>Static</UseOfAtl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfAtl>Static</UseOfAtl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName).x86</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName).x64</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName).x86</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName).x64</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;WITH_AVFFT;_USE_MATH_DEFINES;CHROMAPRINT_API_EXPORTS;_DEBUG;_WINDOWS;_USRDLL;LIBCHROMAPRINT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <DisableSpecificWarnings>4267;4996</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>ffmpeg\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>ffmpeg\lib\x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libswresample.a;libavcodec.a;libavformat.a;libavutil.a;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>LIBCMT.lib</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;WITH_AVFFT;_USE_MATH_DEFINES;CHROMAPRINT_API_EXPORTS;_DEBUG;_WINDOWS;_USRDLL;LIBCHROMAPRINT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <DisableSpecificWarnings>4267;4996</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>ffmpeg\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>ffmpeg\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libswresample.a;libavcodec.a;libavformat.a;libavutil.a;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>LIBCMT.lib</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;WITH_AVFFT;_USE_MATH_DEFINES;CHROMAPRINT_API_EXPORTS;NDEBUG;_WINDOWS;_USRDLL;LIBCHROMAPRINT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <DisableSpecificWarnings>4267;4996</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>ffmpeg\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>ffmpeg\lib\x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libswresample.a;libavcodec.a;libavformat.a;libavutil.a;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;WITH_AVFFT;_USE_MATH_DEFINES;CHROMAPRINT_API_EXPORTS;NDEBUG;_WINDOWS;_USRDLL;LIBCHROMAPRINT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <DisableSpecificWarnings>4267;4996</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>ffmpeg\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>ffmpeg\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libswresample.a;libavcodec.a;libavformat.a;libavutil.a;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="audio_consumer.h" />
+    <ClInclude Include="audio_processor.h" />
+    <ClInclude Include="avresample\avcodec.h" />
+    <ClInclude Include="avresample\dsputil.h" />
+    <ClInclude Include="base64.h" />
+    <ClInclude Include="bit_string_reader.h" />
+    <ClInclude Include="bit_string_writer.h" />
+    <ClInclude Include="chroma.h" />
+    <ClInclude Include="chromaprint.h" />
+    <ClInclude Include="chroma_filter.h" />
+    <ClInclude Include="chroma_normalizer.h" />
+    <ClInclude Include="chroma_resampler.h" />
+    <ClInclude Include="classifier.h" />
+    <ClInclude Include="combined_buffer.h" />
+    <ClInclude Include="debug.h" />
+    <ClInclude Include="decoder.h" />
+    <ClInclude Include="feature_vector_consumer.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\avcodec.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\avfft.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\dxva2.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\old_codec_ids.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\vaapi.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\vda.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\vdpau.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\version.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\xvmc.h" />
+    <ClInclude Include="ffmpeg\include\libavdevice\avdevice.h" />
+    <ClInclude Include="ffmpeg\include\libavdevice\version.h" />
+    <ClInclude Include="ffmpeg\include\libavfilter\asrc_abuffer.h" />
+    <ClInclude Include="ffmpeg\include\libavfilter\avcodec.h" />
+    <ClInclude Include="ffmpeg\include\libavfilter\avfilter.h" />
+    <ClInclude Include="ffmpeg\include\libavfilter\avfiltergraph.h" />
+    <ClInclude Include="ffmpeg\include\libavfilter\buffersink.h" />
+    <ClInclude Include="ffmpeg\include\libavfilter\buffersrc.h" />
+    <ClInclude Include="ffmpeg\include\libavfilter\version.h" />
+    <ClInclude Include="ffmpeg\include\libavformat\avformat.h" />
+    <ClInclude Include="ffmpeg\include\libavformat\avio.h" />
+    <ClInclude Include="ffmpeg\include\libavformat\version.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\adler32.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\aes.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\attributes.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\audioconvert.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\audio_fifo.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\avassert.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\avconfig.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\avstring.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\avutil.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\base64.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\blowfish.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\bprint.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\bswap.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\buffer.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\channel_layout.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\common.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\cpu.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\crc.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\dict.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\downmix_info.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\error.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\eval.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\ffversion.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\fifo.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\file.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\frame.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hmac.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\imgutils.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\intfloat.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\intfloat_readwrite.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\intreadwrite.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\lfg.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\log.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\lzo.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\macros.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\mathematics.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\md5.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\mem.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\murmur3.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\old_pix_fmts.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\opt.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\parseutils.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\pixdesc.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\pixfmt.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\random_seed.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\rational.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\ripemd.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\samplefmt.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\sha.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\sha512.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\stereo3d.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\time.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\timecode.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\timestamp.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\version.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\xtea.h" />
+    <ClInclude Include="ffmpeg\include\libpostproc\postprocess.h" />
+    <ClInclude Include="ffmpeg\include\libpostproc\version.h" />
+    <ClInclude Include="ffmpeg\include\libswresample\swresample.h" />
+    <ClInclude Include="ffmpeg\include\libswresample\version.h" />
+    <ClInclude Include="ffmpeg\include\libswscale\swscale.h" />
+    <ClInclude Include="ffmpeg\include\libswscale\version.h" />
+    <ClInclude Include="fft.h" />
+    <ClInclude Include="fft_frame.h" />
+    <ClInclude Include="fft_frame_consumer.h" />
+    <ClInclude Include="fft_lib.h" />
+    <ClInclude Include="fft_lib_avfft.h" />
+    <ClInclude Include="filter.h" />
+    <ClInclude Include="filter_utils.h" />
+    <ClInclude Include="fingerprinter.h" />
+    <ClInclude Include="fingerprinter_configuration.h" />
+    <ClInclude Include="fingerprint_calculator.h" />
+    <ClInclude Include="fingerprint_compressor.h" />
+    <ClInclude Include="fingerprint_decompressor.h" />
+    <ClInclude Include="fpcalc.h" />
+    <ClInclude Include="image.h" />
+    <ClInclude Include="image_builder.h" />
+    <ClInclude Include="integral_image.h" />
+    <ClInclude Include="lloyds.h" />
+    <ClInclude Include="moving_average.h" />
+    <ClInclude Include="quantizer.h" />
+    <ClInclude Include="silence_remover.h" />
+    <ClInclude Include="spectral_centroid.h" />
+    <ClInclude Include="spectrum.h" />
+    <ClInclude Include="utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="audio_processor.cpp" />
+    <ClCompile Include="avresample\resample2.c" />
+    <ClCompile Include="base64.cpp" />
+    <ClCompile Include="chroma.cpp" />
+    <ClCompile Include="chromaprint.cpp" />
+    <ClCompile Include="chroma_filter.cpp" />
+    <ClCompile Include="chroma_resampler.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="fft.cpp" />
+    <ClCompile Include="fft_lib_avfft.cpp" />
+    <ClCompile Include="filter.cpp" />
+    <ClCompile Include="fingerprinter.cpp" />
+    <ClCompile Include="fingerprinter_configuration.cpp" />
+    <ClCompile Include="fingerprint_calculator.cpp" />
+    <ClCompile Include="fingerprint_compressor.cpp" />
+    <ClCompile Include="fingerprint_decompressor.cpp" />
+    <ClCompile Include="fpcalc.cpp" />
+    <ClCompile Include="image_builder.cpp" />
+    <ClCompile Include="integral_image.cpp" />
+    <ClCompile Include="lloyds.cpp" />
+    <ClCompile Include="silence_remover.cpp" />
+    <ClCompile Include="spectral_centroid.cpp" />
+    <ClCompile Include="spectrum.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ffmpeg\lib\x64\libavcodec.a" />
+    <None Include="ffmpeg\lib\x64\libavdevice.a" />
+    <None Include="ffmpeg\lib\x64\libavfilter.a" />
+    <None Include="ffmpeg\lib\x64\libavformat.a" />
+    <None Include="ffmpeg\lib\x64\libavutil.a" />
+    <None Include="ffmpeg\lib\x64\libswresample.a" />
+    <None Include="ffmpeg\lib\x64\libswscale.a" />
+    <None Include="ffmpeg\lib\x86\libavcodec.a" />
+    <None Include="ffmpeg\lib\x86\libavdevice.a" />
+    <None Include="ffmpeg\lib\x86\libavfilter.a" />
+    <None Include="ffmpeg\lib\x86\libavformat.a" />
+    <None Include="ffmpeg\lib\x86\libavutil.a" />
+    <None Include="ffmpeg\lib\x86\libswresample.a" />
+    <None Include="ffmpeg\lib\x86\libswscale.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ffmpeg\lib\Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="chromaprint.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
